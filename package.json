@@ -1,6 +1,6 @@
 {
   "name": "telegram-signup",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Sign up for Telegram with any device",
   "main": "./lib/index.js",
   "scripts": {
@@ -27,5 +27,17 @@
   ],
   "dependencies": {
     "telegram-mtproto": "^2.2.8"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bannerets/telegram-signup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bannerets/telegram-signup/issues"
+  },
+  "homepage": "https://github.com/Bannerets/telegram-signup#readme"
 }
