@@ -16,6 +16,11 @@
     "telegram-signup": "./bin/telegram-signup"
   },
   "preferGlobal": true,
+  "keywords": [
+    "telegram",
+    "mtproto",
+    "signup"
+  ],
   "dependencies": {
     "telegram-mtproto": "^2.2.8"
   }
