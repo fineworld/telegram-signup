@@ -9,6 +9,9 @@
   },
   "author": "Bannerets <save14@protonmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=7.6.0"
+  },
   "dependencies": {
     "telegram-mtproto": "^2.2.8"
   }
