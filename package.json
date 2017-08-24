@@ -12,6 +12,10 @@
   "engines": {
     "node": ">=7.6.0"
   },
+  "bin": {
+    "telegram-signup": "./bin/telegram-signup"
+  },
+  "preferGlobal": true,
   "dependencies": {
     "telegram-mtproto": "^2.2.8"
   }

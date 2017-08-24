@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+const telegram = new (require('../lib/index.js'));
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+start()
+  .then(
+    () => {
+      process.exit(0);
+    },
+    (err) => {
+      console.error(err);
+      process.exit(1);
+    }
+  );
+
+async function start () {
+  const phoneNumber = await question('Phone number: ');
+  const firstName = await question('First name: ');
+  const lastName = await question('Last name: ');
+
+  const phoneCodeHash = await telegram.sendCode(phoneNumber);
+  console.log('    Phone Code Hash: ' + phoneCodeHash);
+
+  let res;
+  while (!res) {
+    const code = await question('Code: ');
+
+    if (!code) continue;
+
+    try {
+      res = await telegram.signUp(phoneNumber, phoneCodeHash, code, firstName, lastName);
+    } catch (e) {
+      if (e.type !== 'PHONE_CODE_INVALID') throw e;
+    }
+  }
+
+  console.log(res);
+  console.log(telegram.client.storage.store);
+}
+
+function question (query) {
+  return new Promise((resolve) => {
+    rl.question(query, (answer) => {
+      resolve(answer);
+    });
+  });
+}
