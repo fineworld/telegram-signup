@@ -12,6 +12,10 @@
   "engines": {
     "node": ">=7.6.0"
   },
+  "files": [
+    "lib",
+    "bin"
+  ],
   "bin": {
     "telegram-signup": "./bin/telegram-signup"
   },
