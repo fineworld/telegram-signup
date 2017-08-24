@@ -14,15 +14,23 @@ start()
       process.exit(0);
     },
     (err) => {
-      console.error(err);
+      console.error(err.toString());
       process.exit(1);
     }
   );
 
 async function start () {
-  const phoneNumber = await question('Phone number: ');
-  const firstName = await question('First name: ');
-  const lastName = await question('Last name: ');
+  let phoneNumber;
+  while (!phoneNumber) {
+    phoneNumber = await question('Phone number: ');
+  }
+
+  let firstName;
+  while (!firstName) {
+    firstName = await question('First name: ');
+  }
+
+  const lastName = await question('Last name (optional): ');
 
   const phoneCodeHash = await telegram.sendCode(phoneNumber);
   console.log('    Phone Code Hash: ' + phoneCodeHash);
@@ -40,7 +48,7 @@ async function start () {
     }
   }
 
-  console.log(res);
+  console.log(res.user);
   console.log(telegram.client.storage.store);
 }
 
