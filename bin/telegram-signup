@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const telegram = new (require('../lib/index.js'));
+const telegram = new (require('../lib'));
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -11,7 +11,7 @@ const rl = readline.createInterface({
 start()
   .then(
     () => {
-      process.exit(0);
+      process.exit();
     },
     (err) => {
       console.error(err.toString());
@@ -49,13 +49,11 @@ async function start () {
   }
 
   console.log(res.user);
-  console.log(telegram.client.storage.store);
+  console.log(telegram.getStorage());
 }
 
 function question (query) {
   return new Promise((resolve) => {
-    rl.question(query, (answer) => {
-      resolve(answer);
-    });
+    rl.question(query, resolve);
   });
 }
