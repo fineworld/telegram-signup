@@ -26,6 +26,7 @@
     "signup"
   ],
   "dependencies": {
+    "minimist": "^1.2.0",
     "telegram-mtproto": "^2.2.8"
   },
   "directories": {

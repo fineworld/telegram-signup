@@ -1,7 +1,29 @@
 #!/usr/bin/env node
 
-const telegram = new (require('../lib'));
+const TelegramSignUp = require('../lib');
+const minimist = require('minimist');
 const readline = require('readline');
+
+const argv = minimist(process.argv.slice(2), { boolean: [ 'd', 'dev' ] });
+
+if (argv.h || argv.help) {
+  console.log([
+    'Usage: telegram-signup [options]',
+    '',
+    'Options:',
+    '  -K, --key     API key [49631]',
+    '  -H, --hash    API hash [fb050b8f6771e15bfda5df2409931569]',
+    '  -d, --dev     Use telegram dev server',
+    '  -h, --help    Print this list and exit'
+  ].join(require('os').EOL));
+  process.exit();
+}
+
+const key = argv.K || argv.key;
+const hash = argv.H || argv.hash;
+const dev = !!(argv.d || argv.dev);
+
+const telegram = new TelegramSignUp(key, hash, dev);
 
 const rl = readline.createInterface({
   input: process.stdin,
