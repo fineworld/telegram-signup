@@ -1,6 +1,6 @@
 {
   "name": "telegram-signup",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Sign up for Telegram with any device",
   "main": "./lib/index.js",
   "scripts": {

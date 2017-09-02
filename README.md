@@ -26,9 +26,9 @@ It will request phone number, first name, and last name (optional).
 
 ## Options
 
-- `-K`, `--key` - API key (defaults to `49631`)
+- `-I`, `--id` - API ID (defaults to `197316`)
 
-- `-H`, `--hash` - API hash (defaults to `fb050b8f6771e15bfda5df2409931569`)
+- `-H`, `--hash` - API hash (defaults to `f5a841647e17ae9da32b9483d4304e45`)
 
 - `-d`, `--dev` - Use telegram dev server
 
