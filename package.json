@@ -5,7 +5,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "start": "node ./bin/telegram-signup",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint --max-warnings 0 . ./bin/telegram-signup",
+    "precommit": "npm test"
   },
   "author": "Bannerets <save14@protonmail.com>",
   "license": "MIT",
@@ -29,10 +30,14 @@
     "minimist": "^1.2.0",
     "telegram-mtproto": "^2.2.8"
   },
+  "devDependencies": {
+    "eslint": "^4.6.0",
+    "eslint-plugin-async-await": "0.0.0",
+    "husky": "^0.14.3"
+  },
   "directories": {
     "lib": "lib"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bannerets/telegram-signup.git"
